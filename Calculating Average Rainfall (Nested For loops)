@@ -1,0 +1,55 @@
+/*
+Write a program that uses nested loops to collect data and calculate the average rainfall over a period of years. 
+The program should first ask for the number of years. The outer loop will iterate once for each year. 
+The inner loop will iterate twelve times, once for each month. Each iteration of the inner loop will ask
+the user for the inches of rainfall for that month.After all the iterations, the program should display the number of months,
+the total inches of rainfall and the average rainfall per month for the entire period.
+Input validation: 
+Do not accept a number less than 1 for the number of years. 
+Do not accept negative numbers for the monthly rainfall.
+
+*/
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+int main()
+{
+    int year = 1;
+    int month = 1 ;
+    float  rainfall ;
+    int totalmonths = 0 ;
+    float totalrain = 0 ;
+    float average = 0 ;
+
+    cout<< "Please enter how many years are you calculateing ? " << endl;
+    cin>> year ;
+    
+    while (year < 1) {
+        cout<< "Input must be at least 1  \n  **** TRY IT AGAIN **** \n" << endl;
+        cin>> year ;
+    }
+
+    for ( int i = 1 ; i <= year ; i++){
+         
+         for ( float j = 1 ; j <= 12 ; j++ ){
+             
+             cout<<" what is the rate of rainfall in month " << j << " : " <<endl;
+             cin>> rainfall ; 
+             
+             while (rainfall < 0 ){
+                 cout<<"Enter Positive number:  \n  **** TRY IT AGAIN **** \n " << endl;
+                 cin>> rainfall ; 
+             }
+            totalmonths += month  ;
+            totalrain += rainfall;
+            average = totalrain / totalmonths ;
+         }
+    }
+        cout<<"The total of months is : " << totalmonths << endl;
+        cout<<" the total of rainfall is : " <<  setprecision (2) << fixed << totalrain << endl;
+        cout<<" The average of rainfall for  " << totalmonths << "  months is :  " << setprecision (2) << fixed <<  average ;  
+        
+        return 0 ; 
+    
+}
