@@ -22,7 +22,7 @@ int main()
     int occ = 0 ;       // occupied rooms
     int totalrooms = 0 ;
     int totalocc   ; 
-    float perocc = 0 ; // occupancy percentage 
+    int perocc = 0 ; // occupancy percentage 
     
     cout<<"Please tell us how many floors there are ? " << endl;
     cin>> floors;
@@ -32,7 +32,6 @@ int main()
         cout<<"Please Enter a positive value" <<endl;
         cin>> floors ;
     }    
-     
      
     for ( int i = 1 ; i <= floors ; i++) // ASKS FOR ROOMS
     {
@@ -46,7 +45,6 @@ int main()
             cout<< " The Value of the rooms must be at least 10  " << endl;
             cin>> rooms ;
             }
-            
         }
         
     cout<< " How many rooms are occupied on this floor ? " << endl ;
@@ -64,20 +62,10 @@ int main()
         
     }
     
-
-    
-    
     cout<< "The hotel has the total of : "  << floors << " Floors"  << endl;
     cout<< "The hotel has the total of : " <<  totalrooms <<" Rooms" <<endl ;
     cout<< "The hotel has the total of : " << perocc << "%  Percentage occupied" <<endl;
     cout<< "The Hotel Has the total of : " << totalrooms - totalocc << " empty Rooms" <<endl ;  
- 
-
-
-    
-    
-    
-    
     
     return 0 ;
 }
