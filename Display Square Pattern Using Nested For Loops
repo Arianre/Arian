@@ -1,0 +1,46 @@
+/* Write a program that asks the user for a positive integer no greater than 15. 
+The program should then display a square on the screen using the character 'X'. 
+The number entered by the user will be the length of each side of the square. 
+So if user enters 5, we will display
+
+XXXXX
+XXXXX
+XXXXX
+XXXXX
+XXXXX
+*/
+
+#include <iostream>
+using namespace std;
+int main()
+{
+    int usernum ;
+    int square ; 
+    
+    cout<< "Please enter a number from 1 to 15  \n " ;
+    cin>>usernum ; 
+    
+    while (usernum > 15 || usernum < 1)
+    {
+        cout<<"BETWEEN 1 TO 15 \n TRY AGAIN \n " ;
+        cin>> usernum  ;
+        
+    }
+    
+    for (int i = 1 ; i <= usernum ; i++)
+    {
+      square = i * i ; 
+
+        for ( int j = 1 ; j <= usernum ; j++ )
+        {
+            cout<< "X" ;
+        }
+    
+    cout<<endl;
+        
+    }
+    
+    cout<< "\nThe square of number is : " <<square <<endl ;
+    
+
+}
