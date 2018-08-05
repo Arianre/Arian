@@ -1,0 +1,50 @@
+/* Write a program that generates a random number and asks the user to guess what the number is.
+If the user's guess is higher than the random number, the program should display "Too high, try again". 
+If it is lower, it should display "Too low, try again". 
+The program should use a loop that repeats until the user correctly guesses the random number.
+*/
+
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+int main()
+{
+    int randomnumber ;
+    bool win = false ;
+    int userguess ;
+    unsigned seed = time (0) ; 
+    
+    srand (seed);
+    
+    randomnumber = 1 + rand() % 10 ;
+    
+    cout << "I have a number , Enter your Guess " <<endl;
+    cin>> userguess ;
+    
+    
+    
+    while(!win )
+    {
+        if (userguess > randomnumber){
+            cout<<"TO  HIGH  TRY AGAIN \n" ;
+            cin>>userguess ;
+        }
+        
+            else if (userguess < randomnumber)
+            {
+                cout<<"TO LOW TRY AGAIN \n " ;
+                cin>>userguess ;
+            }
+        
+                else
+                {
+                cout<< " WOW THAT IS CORECCET \n " ;
+                win = true ;
+                }
+        
+    }
+    
+    
+    
+}
