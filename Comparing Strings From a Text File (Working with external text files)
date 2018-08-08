@@ -1,0 +1,62 @@
+/*
+
+Modify the exercise 5-14 so that it gets the names from a file. 
+Names should be read in until there are no more data to read.
+Determine which name is first and which last alphabetically.
+
+
+DO NOT FORGET TO MAKE A TXT FILE I MADE 17.TXT YOU CAN CHNAGE IT.
+*/
+
+#include <iostream>
+#include <fstream> // for fail 
+#include <string> // for string
+using namespace std;
+int main()
+{
+    
+    ifstream inputfile;
+    string name ;
+    string firstalpha ;
+    string lastalpha ;
+    int counter = 0 ;
+    
+    
+    inputfile.open("17.txt");
+    
+    while (inputfile >> name)
+    {
+
+        if (counter == 0 )
+        {
+            firstalpha = name ;
+            lastalpha = name ;
+            counter++ ;
+        }
+        
+        
+        else 
+            if( name < firstalpha)
+            {
+                firstalpha = name ;
+                
+            }
+            
+        else if ( name > lastalpha )
+            {
+                lastalpha = name ;
+            }
+        
+    }
+    
+    inputfile.close();
+    
+    cout<<"First name is " << firstalpha << endl;
+    cout<<"Last name is " << lastalpha << endl ;
+    
+    
+    return 0 ;
+    
+    
+    
+}
