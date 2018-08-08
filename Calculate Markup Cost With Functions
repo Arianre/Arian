@@ -1,0 +1,48 @@
+/*
+Write a program that asks the user to enter an item's wholesale cost and its markup percentage.
+It should then display the item's retail price.
+The program should have a function named calculateRetail that receives the wholesale 
+cost and the markup percentage as arguments,and returns the retail price of the item.
+Input Validation: 
+Do not accept negative values for either the wholesale cost of the item or the markup percentage. 
+
+*/
+
+#include <iostream>
+using namespace std;
+double calculateRetail (double , double);
+int main()
+{
+    double price = 0 ;
+    double percentage = 0 ;
+    double totalprice;
+    
+    cout<<"PLEASE ENTER THE VALUE FOR WHOLE SEAL PRICE \n " ;
+    cin>> price ;
+    
+    while(price < 1){
+        cout<< "ONLY POSITIVE NUMBERS FOR PRICE  \n " ;
+        cin>>price ;
+    }
+
+    cout<<"PLEASE ENTER THE VALUE FOR PERCENTAGE \n " ;
+    cin>> percentage ;
+    
+    while (percentage < 1)
+    {
+        cout<<"ONLY POSITIVE NUMBERS FOR PERCENTAGE \n " ;
+        cin>>percentage ;
+    }
+    
+    totalprice = calculateRetail(price , percentage);
+    cout<< "TOTAL PRICE WOULD BE $" << totalprice;
+
+    return 0 ;
+}
+
+double calculateRetail(double cost , double percent){
+    
+    double totalcost = 0;
+    totalcost = ((cost / 100) * percent) + cost ;
+    return totalcost;
+}
