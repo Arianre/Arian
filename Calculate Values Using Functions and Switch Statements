@@ -1,0 +1,105 @@
+/*
+Write a program that determines which of five geographic regions withing a major city 
+(north, south, east, west, central) had the fewest reported automobile accidents last year.
+It should have the following functions, which are called by main:
+- int getNumAccidents() is passed the name of a region.
+It asks the user for the number of automobile accidents reported in that region during the last year, 
+validates the input, then returns it. It should be called once for each city region.
+- void findLowest() is passed the five accident totals. 
+It determines which is the smallest and prints the name of the region, along with its accident figure.
+Input Validation: Do not accept negative values.
+
+*/
+#include <iostream>
+using namespace std;
+int getNumAccidents(string);
+void findLowest(int, int, int, int, int);
+int no , so , ea , we , ce ; // north, south, east, west, central
+
+int main()
+{
+    for (int i = 1 ; i < 6 ; i++)
+    {
+        switch (i) 
+        {
+            case 1:
+                    no = getNumAccidents ("North") ;
+                    break;
+            case 2:        
+                    so = getNumAccidents ("South");
+                    break;
+            case 3:
+                    ea = getNumAccidents ("East");
+                    break;
+            case 4:
+                    we = getNumAccidents ("West");
+                    break;
+            case 5:
+                    ce = getNumAccidents ("Central");
+                    break ;
+        }
+    }
+
+    findLowest(no, so,ea , we , ce);
+}
+
+//founctions
+int getNumAccidents(string name)
+{
+    int num = 0 ;
+    cout<<"Please enter a number of accident for (" << name << ") area :"  <<endl ;
+    cin>>num;
+    
+    
+    
+    while(num < 1 )
+    {
+        cout<<"Must be more than 0 " <<endl;
+        cin>>num;
+    }
+    
+    return num;
+}
+
+
+//function 
+void findLowest (int north , int south , int east , int west , int central)
+{
+    int low = 0 ;
+    string  area = "" ;
+    
+    if (north < south && north < east && north < west && north < central)
+        {
+            low = north ;
+            area = " North "   ;
+        }
+    
+    else if  (south < north && south < east && south < west && south < central)
+        {
+            low = south ;
+            area = " SOUTH "   ;
+        }
+        
+        
+    else if (east < north && east < south && east  < west && east < central)
+        {
+            low = east ;
+            area = " EAST "   ;
+        }
+        
+    else if (west < north && west < south && west < east && west < central)
+        {
+            low = west ;
+            area = " WEST "   ;
+        }
+        
+        else 
+        {
+            low = central ;
+            area = " CENTRAL ";
+        }
+        
+        
+cout<< " The safest are is (" << area <<") there was " << low <<" accident there." <<endl;
+    
+}
