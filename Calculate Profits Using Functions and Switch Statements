@@ -1,0 +1,99 @@
+/*
+Write a program that determines which of a company's four division (NE, SE, NW, SW) had the greatest sales for a quarter. 
+It should include the following two functions, which are called by Main:
+- double getSales() is passed the name of a division.
+It asks the user for a division's quarterly sales figure, validates the input, then returns it. It should be called once for each division.
+- void findHighest() is passed the four sales totals. It determines which is the largest and prints the name if the high with its sale figure.
+Input Validation: 
+Do not accept dollar amounts less than $0.00
+
+*/
+
+#include <iostream>
+using namespace std;
+double getSales(string) ;
+void findHighest(double,double,double,double) ;
+int main()
+{
+
+double ne,se,nw,sw;
+
+
+for (int i = 1 ; i < 5 ; i++)
+{
+    switch (i)
+    {
+        case 1:
+                ne = getSales("NE");
+                break;
+        case 2:
+                se = getSales("SE");
+                break;
+        case 3: 
+                nw = getSales("NW");
+                break;
+        default: 
+                sw = getSales("SW");
+                break ;
+    }
+}
+
+    //calling the function
+    findHighest( ne , se, nw, sw); 
+
+}
+
+// functions 
+
+double getSales(string name){
+    
+    double sales = 0 ;
+    cout<<"Please enter a value for (" << name << ") Devition :"  <<endl ;
+    cin>>sales;
+    
+    while(sales < 1 )
+    {
+        cout<<"Must be more than 0 " <<endl;
+        cin>>sales;
+    }
+    
+    return sales;
+}
+
+
+void findHighest(double  neSale , double seSale, double nwSale, double swSale  )
+{
+    double highest = 0 ;
+    string devition = "" ;
+    double same = 0 ;
+    
+    if(neSale > seSale && neSale > nwSale && neSale > swSale){
+        highest = neSale ;
+        devition = " NE " ;
+    }
+    
+    else if(seSale > neSale && seSale > neSale && seSale > swSale ){
+        highest = seSale ;
+        devition = " SE " ;
+    }    
+    
+    else if(nwSale > neSale && nwSale > seSale && nwSale > swSale){
+        highest = nwSale ;
+        devition = " NW " ;
+    }  
+        
+    else if(neSale == seSale && neSale == nwSale && neSale == swSale) //// This is the situation all are same not necessary 
+    {
+        same = nwSale ;
+        cout<< "All The Divitions Are Same The amount is " << nwSale <<endl;
+    }
+    
+    else 
+    {
+        highest = swSale ;
+        devition = " SW " ;
+    }
+    
+    cout<<"The highest Price is for " <<devition << "devition" <<" The amount is $"<< highest <<endl;
+    
+}
