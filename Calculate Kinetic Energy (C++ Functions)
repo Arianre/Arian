@@ -1,0 +1,51 @@
+/*
+Write a function named kineticEnergy that accepts an object's mass (in kg)
+and velocity (in m/s) as arguments. 
+The function should return the amount of kinetic energy that the object has.
+Demonstrate the function by calling it in a program that asks the user to enter values for mass and velocity.
+
+KE = 1/2 * m * v(to the power of 2)
+*/
+
+#include <iostream>
+#include <math.h>
+using namespace std;
+double kineticEnergy(double m , double v);
+int main()
+{
+    
+    double v = 0 ;       //  is velocity
+    double m = 0 ;      // mas
+    double ke = 0 ;     // kinetic 
+
+    cout<< "Please Enter the mass  in kg :" <<endl;
+    cin>> m;
+    
+        while (m <= 0)
+    {
+        cout<<"Input must be more than 0 " <<endl;
+        cin>>m ;
+    }
+    
+    
+    cout<< "Please Enter the velocity   :" <<endl;
+    cin>> v;
+    
+        while (v <= 0)
+    {
+        cout<<"Input must be more than 0 " <<endl;
+        cin>>v ;
+    }
+
+   ke =  kineticEnergy( v , m );
+   cout<< "The Resualt Is : " << ke ;
+
+}
+
+//functions 
+
+double kineticEnergy( double v, double m )
+{
+
+    return ( 0.5 * m ) * (pow(v,2));  // KE = 1/2 * m * v(to the power of 2)
+}
