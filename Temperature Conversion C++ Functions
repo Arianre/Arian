@@ -1,0 +1,33 @@
+/*
+Write a function named celsius that accepts a Fahrenheit temperature as an argument. 
+The function should return the temperature, converted to Celsius.
+Demonstrate the function by calling it in a loop that displays a table 
+of the Fahrenheit temperatures 0 through 20 and their Celsius equivalents.
+C = 5/9 * (F-32)
+*/
+#include <iostream>
+#include <math.h>
+double celsius ( double f);
+using namespace std;
+int main()
+{
+
+double c = 0 ;
+double f = 0 ;
+cout<< " I Display Tempature from 0 to 20 : " << endl ;
+
+for ( int i = 0 ; i <= 20 ; i++)
+    {
+        c = celsius (i) ; 
+        cout<< i << " Fahrenheit is eqaul to " << c << " of celsius " << endl;
+    }
+    return 0;
+}
+//functions
+double celsius ( double f)
+{
+    double c = 0 ;
+    c = 0.55 * (f - 32) ;
+    return c;
+    
+}23 Temperature Conversion C++ Functions
