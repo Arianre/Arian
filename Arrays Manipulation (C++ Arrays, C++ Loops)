@@ -1,0 +1,56 @@
+/*
+Write a program that asks the user to enter an integer N then compute f(n) 
+Where f(n) :
+F(0)=3
+
+F(n+1)= 3/4*f(n)+4
+
+Output:
+Enter the Nth term: 5
+f(0) = 3.00
+f(1) = 6.25
+f(2) = 8.69
+ f(3) = 10.52
+ f(4) = 11.89
+ f(5) = 12.92
+ Note that: print only two counters after the point.
+
+ */
+ 
+ #include <iostream>
+ #include <math.h>
+ #include <iomanip>
+ 
+ using namespace std;
+ int main()
+ {
+     int counter = 0 ;
+   
+     
+     cout<< "Please enter an integer \n" ;
+     cin>> counter ;
+     
+     while (counter <= 0 )
+     {
+         cout<<"counter must be a positive \n" ;
+         cin>>counter ;
+     }
+     
+     cout<< "//////////////// You Enter " << counter <<"  ////////////////////////\n" ;
+     
+     float myArray [counter - 1] ;
+     myArray[0] = 3;
+     
+     for (int i = 1 ; i <= counter ; i++)
+     {
+         myArray[i] = 3.0f / 4 * myArray[i-1] + 4 ; 
+     }
+     
+     for (int i = 0 ; i < counter ; i++)
+     {
+       cout<< " F(" <<i<< ") = " << setprecision(2) <<fixed << myArray[i] << "\n";
+     }
+ 
+     return 0 ;
+ }
+ 
