@@ -1,0 +1,59 @@
+/*
+Write a program that asks the user to enter two names and store them in string objects.
+It should then report whether they are the same or not, ignoring case,To help accomplish its task, 
+it should use two functions in addition to main(). The functions are:
+StringUppercaseIt(string s) boolean sameString(string s1,string s2)
+The sameString function, which receives the two strings to be compared, 
+will need to call uppercaseIt for each of them before testing if they are the same.
+The uppercaseIt function should use a loop so that it can call the toupper function 
+for every character in the string it receives before returning it back to the sameString function.
+*/
+#include <iostream>
+#include <string>
+using namespace std;
+string UppercaseIt(string s) ;
+bool sameString(string ,string ) ;
+
+int main()
+{
+    string name1 , name2 ; 
+    cout << " Please enter name #1 \n" ;
+    cin >> name1 ; 
+    
+    cout << " Please enter name #2 \n" ;
+    cin >> name2 ; 
+    
+    if (sameString(name1 , name2) == true )
+    {
+       cout<<"The Names are the same \n" ;
+    } 
+    else 
+       cout<<"The Names are not the Same \n" ;
+    
+    
+    sameString(name1 , name2);
+    
+}
+
+//functions 
+// you convert all the characters to uppercase and then on next function you comper 
+string UppercaseIt(string s){
+    string convert ; 
+    
+    for (int i = 0 ; i <= s.length() ; i++){
+    convert += toupper(s[i]);
+    return convert;
+    }
+    
+}
+
+// you call the UppercaseIT here first to see all the same or not
+bool sameString(string s1,string s2){
+    
+    if ( UppercaseIt(s1) .compare(UppercaseIt(s2))  == 0){
+        return true ;
+    }
+    else 
+        return false ;
+
+}
